@@ -312,47 +312,48 @@ a {
         transition: all .3s;
     }
 }
-.mobile-logo {
-    text-align: center;
-}
+ .mobile-logo {
+            text-align: center;
+        }
 
-.linkButton {
-    width: 50px;
-    height: 50px;
-    display: block;
-    margin-top: 25px;
-}
+        .linkButton {
+            width: 50px;
+            height: 50px;
+            display: block;
+            margin-top: 25px;
+        }
 
-.mobile-logo img {
-    width: 66.213px;
-    height: 67.664px;
-}
+        .mobile-logo img {
+            width: 66.213px;
+            height: 67.664px;
+        }
 
-@media screen and (max-width:1001px) {
-    .slider-text {
-        font-size: 50px;
-        line-height: 50px;
-        text-align: center;
-    }
-}
+        @media screen and (max-width:1001px) {
+            .slider-text {
+                font-size: 50px;
+                line-height: 50px;
+                text-align: center;
+            }
+        }
 
-.slider-text2 {
-    color: #FFF;
-    font-family: "IstanbulBasardi";
-    font-size: 41px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 41px;
-    text-transform: uppercase;
-    text-align: left;
-}
+        .slider-text2 {
+            color: #FFF;
+            font-family: "IstanbulBasardi";
+            font-size: 41px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 41px;
+            text-transform: uppercase;
+            text-align: left;
+        }
 
-.slider-span {
-    color: #F6EB16;
-    font-family: "IstanbulBasardi";
-    font-size: 41px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 41px;
-    text-transform: uppercase;
-}
+        .slider-span {
+            color: #F6EB16;
+            font-family: "IstanbulBasardi";
+            font-size: 41px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 41px;
+            text-transform: uppercase;
+        }
+      
