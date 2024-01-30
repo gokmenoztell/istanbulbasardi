@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- SCSS -->
+    <link rel="stylesheet" href="assets/scss/variables.css">
+    <link rel="stylesheet" href="assets/scss/scroller.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+    <style>
+        body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            min-width: 100vw;
+
+        }
+
+        @font-face {
+            font-family: 'mark_proregular';
+            src: url('assets/fonts/mark-pro/mark_pro-webfont.woff2') format('woff2'),
+                url('assets/fonts/mark-pro/mark_pro-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+
+        }
+
+        @font-face {
+            font-family: 'mark_probold';
+            src: url('assets/fonts/mark-pro/MarkPro-Bold.woff2') format('woff2'),
+                url('assets/fonts/mark-pro/MarkPro-Bold.woff') format('woff');
+            font-weight: bold;
+            font-style: normal;
+
+        }
+
+        @font-face {
+            font-family: 'IstanbulBasardi';
+            src: url('assets/fonts/IstanbulBasardi-Regular.woff2') format('woff2'),
+                url('assets/fonts/IstanbulBasardi-Regular.woff') format('woff');
+            font-weight: bold;
+            font-style: normal;
+
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+        }
+
+        .swiper-pagination .swiper-pagination-active {
+            width: 19.791px;
+            height: 5px;
+            flex-shrink: 0;
+            border-radius: 10px;
+            opacity: .3;
+            transition: all .3s linear;
+        }
+
+        .swiper-pagination-bullet {
+            background-color: #FFF;
+
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+
+        }
+
+
+        .swiper-pagination-bullet-active {
+            background-color: white;
+            width: 36.39px;
+            height: 5px;
+            flex-shrink: 0;
+            border-radius: 10px;
+            opacity: 1;
+        }
+
+        .slider-text {
+            color: #FFF;
+            font-family: "IstanbulBasardi";
+            font-size: 110px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 131px;
+            /* 119.091% */
+            letter-spacing: 2.2px;
+            text-transform: uppercase;
+            text-align: -webkit-left;
+        }
+
+        .mobile-logo {
+            text-align: center;
+        }
+
+        .linkButton {
+            width: 50px;
+            height: 50px;
+            display: block;
+            margin-top: 25px;
+        }
+
+        .mobile-logo img {
+            width: 66.213px;
+            height: 67.664px;
+        }
+
+        @media screen and (max-width:1001px) {
+            .slider-text {
+                font-size: 50px;
+                line-height: 50px;
+                text-align: center;
+            }
+        }
+
+        .slider-text2 {
+            color: #FFF;
+            font-family: "IstanbulBasardi";
+            font-size: 41px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 41px;
+            text-transform: uppercase;
+            text-align: left;
+        }
+
+        .slider-span {
+            color: #F6EB16;
+            font-family: "IstanbulBasardi";
+            font-size: 41px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 41px;
+            text-transform: uppercase;
+        }
+
+        .logo-text {
+            color: #FFF;
+            font-family: "mark_probold";
+            font-size: 30px;
+            font-style: normal;
+            font-weight: 800;
+            line-height: 28px;
+            filter: drop-shadow(0px 3px 2px #04040459);
+        }
+
+        .com {
+            font-family: "mark_proregular";
+        }
+
+        .scroll-icon {
+            width: 31px;
+            height: 42px;
+        }
+
+        @media (min-width: 1400px) {
+            .container {
+                max-width: 1550px;
+            }
+        }
+
+        .swiper-horizontal>.swiper-pagination-bullets,
+        .swiper-pagination-bullets.swiper-pagination-horizontal,
+        .swiper-pagination-custom,
+        .swiper-pagination-fraction {
+            left: 10%;
+            width: 100%;
+        }
+
+        .mySwiper img {
+            aspect-ratio: 6/9;
+        }
+
+        .mySwiper .swiper-slide {
+            cursor: pointer;
+        }
+
+        .mySwiper .swiper-slide:hover > .slide-overlay {
+            opacity: 1;
+        }
+
+        .mySwiper .swiper-slide:hover > .slide-overlay .slider-text2 {
+            animation-name: text-slide;
+            animation-duration: .7s;
+        }
+
+        .slide-overlay {
+            opacity: 0;
+            transition: all .3s;
+        }
+
+        .slider-text2 {
+            margin-left: 0;
+        }
+
+        @keyframes text-slide {
+            0% {
+                margin-left: -200px;
+            }
+            100% {
+                margin-left: 0;
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .mdl-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 999;
+            background-color: #fff;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mdl-content {
+            width: 90vw;
+            height: 70vh;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mdl-bg .left, .mdl-bg .right {
+            height: 70vh;
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .mdl-logo {
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            object-fit: contain;
+        }
+
+        .mdl-img {
+            width: 100%;
+            height: 70vh;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        .mdl-bg .slider-text2 {
+            color: #004291;
+        }
+
+        .mdl-bg .slider-span {
+            color: #E30613;
+        }
+
+        .mdl-bg .share {
+            position: absolute;
+            bottom: -25px;
+            background-color: #E30613;
+            border-radius: 20px;
+            padding: 20px 40px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            font-family: "mark_proregular";
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            text-transform: capitalize;
+            color: #fff;
+        }
+
+        .share span {
+            margin-right: 50px;
+        }
+
+        .share svg {
+            width: 22px;
+            height: 22px;
+            margin-left: 15px;
+            transition: all;
+        }
+
+        .share svg:hover {
+            opacity: 0.7;
+        }
+
+        .mdl-bg .close {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #E30613;
+            border-radius: 100%;
+            position: absolute;
+            right: 0;
+            top: 0;
+            cursor: pointer;
+            transition: all .3s;
+        }
+
+        .mdl-bg .close:hover {
+            opacity: 0.7;
+        }
+
+
+        @media screen and (max-width:1001px) {
+            .section2 {
+                margin-top: 50px !important;
+            }
+
+            .footer-logo {
+                margin-top: 50px !important;
+            }
+
+            .footer-logo .main-img {
+                width: 50px;
+            }
+
+            .footer-logo .text-img {
+                width: 90px;
+            }
+
+            .mobile-logo img {
+                margin-top: 10px;
+            }
+
+            .slide-overlay {
+                opacity: 1;
+            }
+
+            .slider-text2, .slider-span {
+                font-size: 24px;
+                line-height: normal;
+            }
+
+            .linkButton {
+                width: 40px;
+            }
+
+            .mdl-logo {
+                display: none;
+            }
+
+            .mdl-content {
+                flex-direction: column;
+                width: 100vw;
+                height: 100vh;
+                overflow: hidden;
+            }
+
+            .mdl-bg .left {
+                width: 100%;
+                height: 40vh;
+                border-radius: 0;
+            }
+
+            .mdl-bg .left img {
+                height: 40vh;
+                border-radius: 0;
+            }
+            
+            .mdl-bg .right {
+                width: 100%;
+                position: unset;
+                text-align: center;
+            }
+
+            .mdl-text, .mdl-bg .slider-text2, .mdl-bg .slider-span {
+                text-align: center !important;
+            }
+
+            .mdl-bg .share {
+                position: absolute;
+                bottom: -25px;
+                background-color: #E30613;
+                border-radius: 20px;
+                padding: 10px 20px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                font-family: "mark_proregular";
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+                text-transform: capitalize;
+                color: #fff;
+            }
+
+            .share span {
+                margin-right: 40px;
+            }
+
+            .share svg {
+                width: 18px;
+                height: 18px;
+                margin-left: 10px;
+                transition: all;
+            }
+
+            .mdl-bg .close {
+                width: 40px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #E30613;
+                border-radius: 100%;
+                position: absolute;
+                right: 20px;
+                top: 20px;
+                cursor: pointer;
+                transition: all .3s;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mdl-bg">
+        <div class="mdl-content">
+            <div class="left">
+                <img src="assets/img/Rectangle 4459.jpg" alt="" class="mdl-img">
+                <div class="share">
+                    <span>Paylas</span>
+                    <a href="" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="23" height="22" viewBox="0 0 23 22" fill="none">
+                            <path d="M14.1365 0C14.7726 0 15.4087 0.0314196 16.038 0.0565553C16.4508 0.0691231 16.8636 0.125678 17.2493 0.163382L17.2223 3.70751H16.9178C16.4982 3.70751 16.0786 3.70751 15.6591 3.70751C15.3478 3.70751 15.0297 3.70751 14.7184 3.72008C13.7101 3.7515 12.9657 4.1034 12.9116 5.27849C12.8778 6.12054 12.8575 7.98686 12.8575 8.0874C12.9116 8.0874 13.9064 8.0874 14.9147 8.0874C15.4155 8.0874 15.9095 8.0874 16.2478 8.0874H17.0666C16.8636 9.44473 16.6741 10.7518 16.4711 12.0651H12.8575L12.7763 22H8.33701L8.41821 12.0463H4.79102L4.82485 8.0874H8.47235V7.79206C8.47912 6.994 8.47235 6.19594 8.50618 5.39789C8.51972 4.89517 8.54679 4.37989 8.64153 3.88346C8.88515 2.67067 9.49419 1.65267 10.5837 0.93002C11.5379 0.295344 12.6274 0.0251357 13.7778 0C13.8928 0 14.0146 0 14.1297 0H14.1365Z" fill="white"/>
+                        </svg>
+                    </a>
+                    <a href="" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="23" height="22" viewBox="0 0 23 22" fill="none">
+                            <path d="M17.6287 6.43695C16.8671 6.43837 16.2479 5.84852 16.2464 5.12003C16.2449 4.39153 16.8616 3.79919 17.6235 3.79777C18.3855 3.79634 19.0047 4.38654 19.0062 5.11503C19.0074 5.84353 18.3907 6.43552 17.6287 6.43695Z" fill="white"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M11.511 16.6476C8.25037 16.6537 5.60156 14.1303 5.59523 11.0107C5.58889 7.89179 8.22763 5.35774 11.4883 5.35169C14.7496 5.34563 17.3988 7.87041 17.4052 10.989C17.4115 14.1086 14.772 16.6415 11.511 16.6476ZM11.4924 7.33366C9.376 7.33722 7.66278 8.98203 7.6665 11.0068C7.6706 13.0319 9.39053 14.6703 11.5069 14.6663C13.624 14.6624 15.3372 13.018 15.3331 10.9929C15.329 8.96777 13.6091 7.32974 11.4924 7.33366Z" fill="white"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.94757 0.592606C4.67788 0.318886 5.51361 0.131415 6.73723 0.0761734C7.96385 0.0198666 8.35544 0.00703177 11.4778 0.00133157C14.601 -0.00436863 14.9926 0.00702957 16.2192 0.059064C17.4432 0.109673 18.2793 0.294295 19.0111 0.565165C19.7682 0.844226 20.4106 1.21988 21.0507 1.82969C21.6908 2.44021 22.085 3.05252 22.3805 3.77566C22.6663 4.47493 22.8623 5.27364 22.9204 6.44479C22.9785 7.61771 22.9927 7.99193 22.9986 10.979C23.0046 13.9656 22.9919 14.3406 22.9383 15.5146C22.885 16.6847 22.6924 17.4848 22.4092 18.1844C22.1167 18.9086 21.7247 19.5231 21.0872 20.1354C20.4497 20.748 19.8088 21.1248 19.0528 21.4077C18.3218 21.6808 17.4868 21.8682 16.2632 21.9242C15.0366 21.9798 14.6449 21.993 11.5214 21.9987C8.3994 22.0044 8.00781 21.993 6.78121 21.9413C5.55721 21.89 4.72072 21.7057 3.9893 21.4352C3.23218 21.1551 2.58982 20.7805 1.94969 20.1703C1.30919 19.5601 0.91462 18.9475 0.619523 18.2243C0.333363 17.5254 0.138103 16.7264 0.0796113 15.5563C0.0211177 14.3826 0.0073361 14.0077 0.0013791 11.021C-0.0046009 8.03399 0.00770181 7.65977 0.0613493 6.48648C0.115383 5.31534 0.307277 4.51556 0.590457 3.81522C0.882939 3.09136 1.27491 2.47728 1.91319 1.86462C2.5507 1.25232 3.19157 0.874516 3.94757 0.592606ZM4.73564 19.5872C5.1414 19.7366 5.75022 19.9148 6.87139 19.9615C8.08457 20.0117 8.44784 20.0228 11.5177 20.017C14.5887 20.0117 14.952 19.9992 16.1648 19.9447C17.2848 19.8937 17.8936 19.7134 18.2983 19.5623C18.8352 19.3616 19.2175 19.1218 19.6191 18.7372C20.0208 18.3512 20.2694 17.9845 20.4773 17.4709C20.6337 17.0824 20.8197 16.4997 20.8685 15.4273C20.9218 14.2675 20.9329 13.9197 20.927 10.9825C20.9214 8.04611 20.9084 7.69826 20.8506 6.53816C20.7977 5.46644 20.6095 4.88408 20.4512 4.49738C20.2414 3.98309 19.9914 3.61813 19.5882 3.23357C19.1851 2.849 18.8017 2.61199 18.264 2.41312C17.859 2.26308 17.2494 2.08558 16.129 2.0389C14.9158 1.98793 14.5522 1.97759 11.4816 1.9833C8.4117 1.989 8.04843 2.00076 6.83561 2.05565C5.71483 2.10661 5.10674 2.28659 4.70134 2.43807C4.1648 2.63872 3.78251 2.87716 3.38048 3.26315C2.97918 3.64913 2.73066 4.01516 2.52275 4.52981C2.36702 4.91759 2.17958 5.50066 2.13153 6.57238C2.07861 7.73283 2.06744 8.08068 2.0734 11.0171C2.07899 13.9542 2.09203 14.3021 2.14904 15.4615C2.20157 16.5339 2.39121 17.1155 2.54884 17.5037C2.75861 18.0165 3.00863 18.3822 3.41141 18.7668C3.81494 19.1499 4.19834 19.3883 4.73564 19.5872Z" fill="white"/>
+                        </svg>
+                    </a>
+                    <a href="" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="23" height="22" viewBox="0 0 23 22" fill="none">
+                            <path d="M17.5633 1.74524H20.7963L13.7333 9.46677L22.0423 19.974H15.5364L10.4408 13.6014L4.61018 19.974H1.37531L8.92986 11.715L0.958984 1.74524H7.63005L12.2361 7.57004L17.5633 1.74524ZM16.4287 18.1231H18.2201L6.65665 3.49894H4.7343L16.4287 18.1231Z" fill="white"/>
+                        </svg>
+                    </a>
+                    <a href="" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="22" viewBox="0 0 21 22" fill="none">
+                            <path d="M15.4806 10.1966C15.3902 10.1512 15.2983 10.1074 15.2052 10.0656C15.0431 6.93667 13.4111 5.14536 10.6708 5.12703C10.6584 5.12695 10.6461 5.12695 10.6337 5.12695C8.99461 5.12695 7.63143 5.85989 6.79241 7.19362L8.29948 8.27668C8.92627 7.28043 9.90994 7.06805 10.6344 7.06805C10.6427 7.06805 10.6511 7.06805 10.6594 7.06813C11.5617 7.07416 12.2426 7.34899 12.6832 7.88494C13.0039 8.27513 13.2184 8.81432 13.3246 9.49481C12.5246 9.35237 11.6595 9.30858 10.7346 9.36413C8.12926 9.52135 6.45434 11.1132 6.56683 13.3251C6.62391 14.4471 7.15747 15.4124 8.06914 16.0429C8.83995 16.576 9.8327 16.8366 10.8645 16.7776C12.227 16.6994 13.296 16.1548 14.0417 15.1589C14.608 14.4027 14.9662 13.4226 15.1244 12.1878C15.7737 12.5983 16.255 13.1386 16.5208 13.788C16.9727 14.8921 16.9991 16.7062 15.586 18.1853C14.348 19.481 12.8599 20.0415 10.6109 20.0588C8.11608 20.0395 6.22932 19.2013 5.0026 17.5676C3.85388 16.0378 3.26022 13.8281 3.23807 11C3.26022 8.17183 3.85388 5.96218 5.0026 4.43239C6.22932 2.79869 8.11605 1.96052 10.6108 1.9411C13.1237 1.96067 15.0433 2.80287 16.317 4.44446C16.9415 5.24948 17.4124 6.26184 17.7228 7.44222L19.4889 6.94859C19.1126 5.49567 18.5206 4.24367 17.7149 3.20535C16.0821 1.10077 13.694 0.0223607 10.617 0H10.6047C7.53393 0.022283 5.17257 1.10479 3.58622 3.21742C2.17458 5.0974 1.44642 7.71326 1.42195 10.9923L1.42188 11L1.42195 11.0077C1.44642 14.2867 2.17458 16.9026 3.58622 18.7826C5.17257 20.8952 7.53393 21.9778 10.6047 22H10.617C13.347 21.9802 15.2714 21.2314 16.8567 19.5721C18.9307 17.4013 18.8683 14.6803 18.1847 13.0099C17.6943 11.8121 16.7592 10.8391 15.4806 10.1966ZM10.7669 14.8393C9.62506 14.9067 8.43876 14.3698 8.38027 13.2197C8.33691 12.367 8.95954 11.4155 10.837 11.3021C11.052 11.2891 11.263 11.2828 11.4703 11.2828C12.1522 11.2828 12.7902 11.3522 13.3702 11.485C13.1539 14.3155 11.8849 14.7751 10.7669 14.8393Z" fill="white"/>
+                        </svg>
+                    </a>
+                    <a href="" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="22" viewBox="0 0 21 22" fill="none">
+                            <g clip-path="url(#clip0_130_4756)">
+                                <path d="M2.55534 0C3.95927 0 5.08092 1.18855 5.06607 2.649C5.05864 4.10946 3.92212 5.29802 2.51077 5.29802C1.09941 5.29802 -0.00739102 4.10946 3.7171e-05 2.649C0.00746537 1.18855 1.15884 0 2.55534 0Z" fill="white"/>
+                                <path d="M4.68723 7.29449L4.58323 22H0.208027L0.31945 7.29449H4.68723Z" fill="white"/>
+                                <path d="M15.8072 6.93714C20.2344 6.93714 21.0218 9.97458 20.9995 13.9364L20.9401 22H16.5798L16.6318 14.8609C16.6466 13.1518 16.6243 10.9534 14.3885 10.9534C12.1526 10.9534 11.7589 12.81 11.744 14.7288L11.692 22H7.31681L7.4208 7.30226H11.6103L11.5954 9.31426H11.6623C12.2566 8.16454 13.6828 6.94492 15.8072 6.94492V6.93714Z" fill="white"/>
+                            </g>
+                            <defs>
+                            <clipPath id="clip0_130_4756">
+                                <rect width="21" height="22" fill="white"/>
+                            </clipPath>
+                            </defs>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="right">
+                <div class="mdl-text">
+                    <p class="slider-text2">Ekrem İmamoğlu <br>
+                        5 yılda 238 KM metro sözü verdİ. <br>
+                        35,5 KM’sİ AK Partİ dönemİnde <br>
+                        başlanan 43,5 KM metro açtı. <br>
+                        İmamoğlu <span class="slider-span">5 yılda sadece <br>
+                            8 KM metro yaptı.</span>
+                    </p>
+                </div>
+                <div class="close">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M11.1064 12.5001L0.767578 1.69128L2.21286 0.308838L13.874 12.5001L2.21286 24.6913L0.767579 23.3088L11.1064 12.5001Z" fill="white"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M13.8917 12.5001L24.2305 1.69128L22.7852 0.308838L11.124 12.5001L22.7852 24.6913L24.2305 23.3088L13.8917 12.5001Z" fill="white"/>
+                    </svg>
+                </div>
+            </div>
+            <img src="assets/img/Group 6497.svg" alt="" class="mdl-logo">
+        </div>
+    </div>
+    <script>
+        $('.mdl-bg').fadeOut(0);
+        $('.close').click(function() {
+            $('.mdl-bg').fadeOut(200);
+        });
+
+        $('body').on('click', '.swiper-slide', function() {
+            $('.mdl-bg').fadeIn(200);
+            var img = $(this).children('img').attr('src');
+            $('.mdl-img').attr('src', img);
+            var text = $(this).children('.slide-overlay').html();
+            $('.mdl-text').html(text);
+            $('.mdl-bg .linkButton').remove();
+        });
+    </script>
+    <section class="bg-info h-100 w-100">
+        <div class="container mb-5">
+            <div class="row">
+                <div class="figure-img d-none d-lg-flex align-items-center mt-5 pt-5 ">
+                    <img src="assets/img/logo.svg" alt="">
+                    <p class="logo-text w-25 ps-3">istanbul <br>
+                        basardi<span class="com">.com</span> </p>
+                </div>
+                <div class="mobile-logo d-lg-none d-block">
+                    <img src="assets/img/Group 6497.svg" alt="">
+                </div>
+
+            </div>
+        </div>
+        <div class="swiper headerSwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="container">
+                        <div class="row d-flex justify-content-center justify-content-lg-start">
+                            <div class="col-8">
+                                <div>
+                                    <p class="slider-text">Ekrem İmamoğlu <br> 2019’da kİ vaatlerİnİn sadece <br> %4’ünü
+                                        yerİne
+                                        getİrebİldİ.</p>
+                                    <!-- <p class="x"></p>
+                                    <p class="x"></p> -->
+                                </div>
+                            </div>
+                            <div class="col-4 d-lg-block d-none">
+                                <img src="assets/img/Group 6497.svg" class="slider-logo" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-8">
+                                <div>
+                                    <p class="slider-text">Ekrem İmamoğlu <br> 2019’da kİ vaatlerİnİn sadece <br> %4’ünü
+                                        yerİne
+                                        getİrebİldİ.</p>
+                                    <!-- <p class="x"></p>
+                                    <p class="x"></p> -->
+                                </div>
+                            </div>
+
+                            <div class="col-4 d-lg-block d-none">
+                                <img src="assets/img/Group 6497.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-8">
+                                <div>
+                                    <p class="slider-text">Ekrem İmamoğlu <br> 2019’da kİ vaatlerİnİn sadece <br> %4’ünü
+                                        yerİne
+                                        getİrebİldİ.</p>
+                                    <!-- <p class="x"></p>
+                                    <p class="x"></p> -->
+                                </div>
+                            </div>
+
+                            <div class="col-4 d-lg-block d-none">
+                                <img src="assets/img/Group 6497.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <!-- <img class="bg-info scroll-icon mt-5 mb-5 " src="assets/img/Scrool.svg" alt=""> -->
+                <a href="javascript:;" id="buttonScroll" class="scroll_down">
+                    <div class="mousey">
+                        <div class="scroller"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="swiper-pagination swiper-pagination-clickable d-none d-lg-flex"></div>
+        </div>
+        <img class="bg-info w-100 mt-5 " src="assets/img/istWhite.svg" alt="">
+    </section>
+
+    <section class="section2 overflow-hidden" style="margin-top: 200px;">
+        <div class="container position-relative sliderContainer">
+            <div class="swiper mySwiper ms-0 overflow-visible">
+
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="slide-overlay">
+                            <p class="slider-text2">Ekrem İmamoğlu <br>
+                                5 yılda 238 KM metro sözü <br>verdİ. <br>
+                                35,5 KM’sİ AK Partİ dönemİnde <br>
+                                başlanan 43,5 KM metro açtı. <br>
+                                İmamoğlu <span class="slider-span">5 yılda sadece <br>
+                                    8 KM metro yaptı.</span>
+
+                                <a class="linkButton" href=""><img class="button-img" src="assets/img/link-button.svg"
+                                        alt=""></a>
+                            </p>
+                        </div>
+                        <img src="assets/img/sliderİmg.png" alt="">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="slide-overlay">
+                            <p class="slider-text2">Bilişim Vadisi ve Teknokent, <br>
+                                3 Boyutlu Tasarım ve Üretim <br> Merkezi, Otonom-İst, İstanbul <br> Denizaltı, Merkez
+                                Mahalle
+                                <br> Uygulaması <span class="slider-span"> vaat edildi. <br> Yapılmadı.</span>
+                                <a class="linkButton" href=""><img class="button-img" src="assets/img/link-button.svg"
+                                        alt=""></a>
+                            </p>
+                        </div>
+                        <img src="assets/img/image 53.png" alt="">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="slide-overlay">
+                            <p class="slider-text2">10 Yeni Huzurevi, 5 Yeni <br>
+                                Alzheimer Gündüz Bakım Evi,<br> Acil Durum Bilekliği, Her İlçeye <br> Yaşlıların
+                                Sosyalleşeceği
+                                <br> Merkezler <span class="slider-span"> vaat edildi. <br> Yapılmadı.</span>
+                                <a class="linkButton" href=""><img class="button-img" src="assets/img/link-button.svg"
+                                        alt=""></a>
+                            </p>
+                        </div>
+                        <img src="assets/img/image 53.png" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="slide-overlay">
+                            <p class="slider-text2">Ekrem İmamoğlu <br>
+                                5 yılda 238 KM metro sözü <br>verdİ. <br>
+                                35,5 KM’sİ AK Partİ dönemİnde <br>
+                                başlanan 43,5 KM metro açtı. <br>
+                                İmamoğlu <span class="slider-span">5 yılda sadece <br>
+                                    8 KM metro yaptı.</span>
+<!-- 
+                                <a class="linkButton" href=""><img class="button-img" src="assets/img/link-button.svg"
+                                        alt=""></a> -->
+
+
+<!-- Button trigger modal -->
+
+<a class="linkButton" href="" data-bs-toggle="modal" data-bs-target="#exampleModal"><img class="button-img" src="assets/img/link-button.svg"
+    alt=""></a>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+                            </p>
+                        </div>
+                        <img src="assets/img/image 53.png" alt="">
+                    </div>
+
+                    <div class="swiper-slide"><img src="assets/img/image 53.png" alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/sliderİmg2.png" alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/sliderİmg3.png" alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/sliderİmg.png" alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/sliderİmg.png" alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/sliderİmg2.png" alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/sliderİmg3.png" alt=""></div>
+                    <div class="swiper-slide"><img src="assets/img/sliderİmg.png" alt=""></div>
+
+                </div>
+                <style>
+                    .sliderContainer:before {
+                        content: "";
+                        width: 100%;
+                        height: 100%;
+                        right: calc(100% - 2px);
+                        position: absolute;
+                        top: 0;
+                        z-index: 2;
+                        background-color: #ffffff;
+                    }
+
+                    .swiper-slide .slide-overlay {
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        margin: 0 auto;
+                        border-radius: 20px;
+                        background: linear-gradient(79deg, #004291 2.04%, rgba(0, 66, 145, 0.00) 99.19%);
+                        display: flex;
+                        align-items: flex-end;
+                        justify-content: center;
+                        padding: 30;
+                    }
+
+                    .arrows-button {
+                        background-color: #E30613;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        border-radius: 20px;
+                        position: absolute;
+                        left: -10px;
+                        z-index: 100;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        width: 65px;
+                        height: 138px;
+                    }
+
+                    .arrows-button div {
+                        width: 100%;
+                        height: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 8px;
+                    }
+
+                    .arrows-button div svg {
+                        fill: #ffffff;
+                    }
+
+                    @media screen and (min-width:992px) {
+                        .arrows-button div:hover {
+                            background-color: rgba(0, 0, 0, 0.1);
+                        }
+
+                    }
+                </style>
+
+            </div>
+            <div class="arrows-button d-none d-lg-flex">
+
+                <div class="prev"> <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                        class="bi bi-chevron-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
+                    </svg> </div>
+
+                <div class="next"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                        class="bi bi-chevron-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
+                    </svg>
+                    <g id="next">
+                        <g>
+                            <polygon points="6.8,23.7 5.4,22.3 15.7,12 5.4,1.7 6.8,0.3 18.5,12   " />
+                        </g>
+                    </g>
+                    </svg>
+                </div>
+            </div>
+            <div class="swiper-pagination2"></div>
+        </div>
+
+
+        <!-- Initialize Swiper -->
+        <script>
+
+            var screen = screen.width;
+            var container = document.getElementsByClassName("container")[0].offsetWidth;
+            $(".mySwiper").css("margin-left", (screen - container) / 2)
+
+
+
+            var swiper = new Swiper(".headerSwiper", {
+                slidesPerView: 1,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+            });
+
+            var swiper2 = new Swiper(".mySwiper", {
+                slidesPerView: 1.5,
+                spaceBetween: 30,
+                centeredSlides: true,
+                navigation: {
+                    nextEl: ".next",
+                    prevEl: ".prev",
+                },
+
+                pagination: {
+                    el: ".swiper-pagination2",
+                    clickable: true,
+                },
+                breakpoints: {
+                    480: {
+                        centeredSlides: false,
+                        slidesPerView: 3,
+                        spaceBetween: 10,
+                    },
+                    640: {
+                        centeredSlides: false,
+                        slidesPerView: 3.2,
+                        spaceBetween: 10,
+                    }
+                }
+            });
+
+        </script>
+
+    </section>
+    <section class="footer-logo" style="margin-top: 197px;">
+        <div class="imgLogo d-flex justify-content-center">
+            <img class="main-img" src="assets/img/beyazyıldız.svg" alt="">
+            <img class="ps-3 text-img" src="assets/img/istanbul basardi.com.svg" alt="">
+        </div>
+    </section>
+    <section>
+        <img class="w-100" src="assets/img/Vector.svg" alt="">
+        <img class="w-100 d-lg-block d-none" src="assets/img/istanbulblue.svg" alt="">
+        <img class="w-100  d-lg-none d-block" src="assets/img/footer-new.png" alt="">
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+@font-face {
+    font-family: "Mark Pro";
+
+    src: url('./assets/fonts/mark-pro/MarkPro.eot');
+    src: url('./assets/fonts/mark-pro/MarkPro.eot') format('embedded-opentype'),
+        url('./assets/fonts/mark-pro/MarkPro.woff2') format('woff2'),
+        url('./assets/fonts/mark-pro/MarkPro.woff') format('woff'),
+        url('./assets/fonts/mark-pro/MarkPro.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'mark_proregular';
+    src: url('mark_pro-webfont.woff2') format('woff2'),
+         url('mark_pro-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+.button-img{
+    width: 49px !important;
+height: 49px !important;
+flex-shrink: 0;
+}
+
+ 
